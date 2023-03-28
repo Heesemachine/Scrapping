@@ -1,7 +1,7 @@
 from requests import get
 from bs4 import BeautifulSoup
 
-BASE_URL = "https://metanit.com/"
+BASE_URL = "https://metanit.com"
 URL = BASE_URL + "/python/tutorial/"
 
 
@@ -17,7 +17,7 @@ categories = []
 for li in tutor_list.find_all("li"):
     a = li.find("a")
     tutor_name = a.find(text=True, recursive=False)
-    tutor_link = BASE_URL + a.get("href")
+    tutor_link = URL + a.get("href")
     categories.append((tutor_name, tutor_link))
 
 
