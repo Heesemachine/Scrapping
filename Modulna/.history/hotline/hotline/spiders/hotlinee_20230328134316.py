@@ -20,11 +20,13 @@ class HotlineSpider(scrapy.Spider):
             price = product.find(class_="price__value").find(
                 string=True, recursive=False)
             stores = product.find_all("a", class_="shop__title")
-            
-            # перевіряємо, чи продається продукт в більше ніж 10 магазинах
-            if len(stores) > 10:
-                yield HotlineItem(
-                    name=name,
-                    url=url,
-                    price=price,
+
+
+        
+            yield HotlineItem(
+                    name = name,
+                    url= url,
+                    price= price,
                 )
+
+                

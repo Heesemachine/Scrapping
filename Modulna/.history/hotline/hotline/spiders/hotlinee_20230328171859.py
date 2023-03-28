@@ -1,8 +1,3 @@
-import scrapy
-from bs4 import BeautifulSoup
-import csv
-from hotline.items import HotlineItem
-
 class HotlineSpider(scrapy.Spider):
     name = 'hotline'
     allowed_domains = ['hotline.ua']
