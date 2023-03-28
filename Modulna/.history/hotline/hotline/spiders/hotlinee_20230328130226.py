@@ -9,7 +9,7 @@ class HotlineSpider(scrapy.Spider):
     start_urls = ['https://hotline.ua/ua/bt/kuhonnye-plity-i-poverhnosti/']
 
     def parse(self, response):
-        soup = BeautifulSoup(response.body, 'html.parser')
+        soup = BeautifulSoup(response.text, 'html.parser')
         products = soup.find(
             name="div", class_="list-body__content").find_all(class_="list-item")
 

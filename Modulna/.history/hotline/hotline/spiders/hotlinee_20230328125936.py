@@ -9,7 +9,7 @@ class HotlineSpider(scrapy.Spider):
     start_urls = ['https://hotline.ua/ua/bt/kuhonnye-plity-i-poverhnosti/']
 
     def parse(self, response):
-        soup = BeautifulSoup(response.body, 'html.parser')
+        soup = BeautifulSoup(response.text, 'html.parser')
         products = soup.find(
             name="div", class_="list-body__content").find_all(class_="list-item")
 
@@ -20,12 +20,15 @@ class HotlineSpider(scrapy.Spider):
             price = product.find(class_="price__value").find(
                 string=True, recursive=False)
 
+            stores = product.find("a", class_="shop__title")
+            store_count = len(stores)
 
-        
-            yield HotlineItem(
+            if store_count > 10:
+                yield HotlineItem(
                     name = name,
                     url= url,
                     price= price,
+                    store_counT: store_count
                 )
 
                 

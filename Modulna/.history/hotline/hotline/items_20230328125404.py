@@ -11,4 +11,6 @@ class HotlineItem(scrapy.Item):
     name = scrapy.Field()
     url = scrapy.Field()
     price = scrapy.Field()
+    stores = scrapy.Field()
+    store_count
     pass
